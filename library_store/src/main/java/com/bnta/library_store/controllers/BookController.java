@@ -36,8 +36,6 @@ public class BookController {
     }
 
 
-
-
     // show mapping - get info of one book via its id - GET - /books/:id
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Book>> getBook(@PathVariable Long id){
@@ -50,5 +48,15 @@ public class BookController {
         bookRepository.save(newBook);
         return new ResponseEntity<>(newBook, HttpStatus.CREATED);
     }
+
+    // Destroy mapping - delete specific book via its id and redirect - DELETE - /books/:id
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Optional<Book>> deleteBook(@PathVariable Long id){
+        bookRepository.deleteById(id);
+        return new ResponseEntity<>(bookRepository.findById(id), HttpStatus.OK);
+    }
+
+
 }
+
 
