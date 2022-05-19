@@ -9,7 +9,7 @@ public class Book {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
@@ -29,6 +29,8 @@ public class Book {
         this.author = author;
         this.library = library;
     }
+
+    public Book(){}
 
     public Long getId() {
         return id;

@@ -12,7 +12,7 @@ import java.util.List;
 public class Library {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
@@ -31,6 +31,8 @@ public class Library {
         this.location = location;
         this.books = new ArrayList<Book>();
     }
+
+    public Library(){}
 
     public Long getId() {
         return id;
