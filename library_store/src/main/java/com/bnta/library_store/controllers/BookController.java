@@ -16,21 +16,23 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
+    //Index mapping - display all books - GET - /books
     @GetMapping
     public ResponseEntity<List<Book>> getBooks() {
         return new ResponseEntity<>(bookRepository.findAll(), HttpStatus.OK);
     }
 
-    // show mapping
-    @GetMapping(value = "/{id}") // localhost:8080/books/1
+    // show mapping - get info of one book via its id - GET - /books/:id
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Book>> getBook(@PathVariable Long id){
         return new ResponseEntity<>(bookRepository.findById(id), HttpStatus.OK);
     }
 
-    // create
+    // create mapping - add new book to database then redirect - POST -/books
     @PostMapping
-    public void createProduct(@RequestBody Book book){
-        bookRepository.save(book);
+    public ResponseEntity<Book> createBook(@RequestBody Book newBook){
+        bookRepository.save(newBook);
+        return new ResponseEntity<>(newBook, HttpStatus.CREATED);
     }
 }
 
