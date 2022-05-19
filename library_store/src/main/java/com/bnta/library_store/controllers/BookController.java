@@ -24,7 +24,7 @@ public class BookController {
 
 
 
-//  /books?author=""
+//                                                             /books?author=""
     @GetMapping
     public ResponseEntity<List<Book>> getAllBooksAndFilters(
             @RequestParam(required = false, name = "author") String author
@@ -36,13 +36,13 @@ public class BookController {
     }
 
 
-    // show mapping - get info of one book via its id - GET - /books/:id
+    // Show mapping - get info of one book via its id - GET - /books/:id
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Book>> getBook(@PathVariable Long id){
         return new ResponseEntity<>(bookRepository.findById(id), HttpStatus.OK);
     }
 
-    // create mapping - add new book to database then redirect - POST -/books
+    // Create mapping - add new book to database then redirect - POST -/books
     @PostMapping
     public ResponseEntity<Book> createBook(@RequestBody Book newBook){
         bookRepository.save(newBook);

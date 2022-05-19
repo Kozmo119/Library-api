@@ -36,7 +36,7 @@ class LibraryStoreApplicationTests {
 		List<Book> found1 = bookRepository.findBookByAuthor("Joanne Rowling");
 		assertThat(found1.size()).isEqualTo(5);
 	}
-	
+
 	@Test
 	public void canFindBookByNameContaining(){
 		List<Book> found2 = bookRepository.findBookByNameContaining("Harry Potter");
