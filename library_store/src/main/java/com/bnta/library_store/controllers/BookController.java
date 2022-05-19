@@ -17,10 +17,26 @@ public class BookController {
     private BookRepository bookRepository;
 
     //Index mapping - display all books - GET - /books
+//    @GetMapping
+//    public ResponseEntity<List<Book>> getBooks() {
+//        return new ResponseEntity<>(bookRepository.findAll(), HttpStatus.OK);
+//    }
+
+
+
+//  /books?author=""
     @GetMapping
-    public ResponseEntity<List<Book>> getBooks() {
+    public ResponseEntity<List<Book>> getAllBooksAndFilters(
+            @RequestParam(required = false, name = "author") String author
+    )   {
+        if(author !=null){
+            return new ResponseEntity<>(bookRepository.findBookByAuthor(author), HttpStatus.OK);
+        }
         return new ResponseEntity<>(bookRepository.findAll(), HttpStatus.OK);
     }
+
+
+
 
     // show mapping - get info of one book via its id - GET - /books/:id
     @GetMapping(value = "/{id}")
