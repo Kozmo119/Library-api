@@ -38,7 +38,19 @@ public class Dataloader implements ApplicationRunner {
         Book book3 = new Book("Harry Potter and the Philosopher’s Stone", "Joanne Rowling", library2);
         bookRepository.save(book3);
 
+        Book book4 = new Book("Harry Potter and the Chamber of Secrets", "Joanne Rowling", library2);
+        bookRepository.save(book4);
 
+        Book book5 = new Book("Harry Potter and the Prisoner of Azkaban", "Joanne Rowling", library2);
+        bookRepository.save(book5);
+
+
+        Book book6 = new Book("Harry Potter and the Goblet of Fire", "Joanne Rowling", library2);
+        bookRepository.save(book6);
+
+
+        Book book7 = new Book("Harry Potter and the Order of the Phoenix ", "Joanne Rowling", library2);
+        bookRepository.save(book7);
 
 
     }
