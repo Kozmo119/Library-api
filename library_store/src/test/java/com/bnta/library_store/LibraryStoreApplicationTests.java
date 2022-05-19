@@ -1,6 +1,7 @@
 package com.bnta.library_store;
 
 import com.bnta.library_store.models.Book;
+import com.bnta.library_store.models.Library;
 import com.bnta.library_store.repositories.BookRepository;
 import com.bnta.library_store.repositories.LibraryRepository;
 import org.junit.jupiter.api.Test;
@@ -31,6 +32,13 @@ class LibraryStoreApplicationTests {
 	public void canFindBookByAuthor(){
 		List<Book> found1 = bookRepository.findBookByAuthor("Joanne Rowling");
 		assertThat(found1.size()).isEqualTo(5);
+	}
+	
+	@Test
+	public void canFindBookByNameContaining(){
+		List<Book> found2 = bookRepository.findBookByNameContaining("Harry Potter");
+		assertThat(found2.size()).isEqualTo(5);
+
 	}
 
 }
