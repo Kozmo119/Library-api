@@ -18,6 +18,9 @@ class LibraryStoreApplicationTests {
 	@Autowired
 	BookRepository bookRepository;
 
+	@Autowired
+	LibraryRepository libraryRepository;
+
 	@Test
 	void contextLoads() {
 	}
@@ -40,6 +43,17 @@ class LibraryStoreApplicationTests {
 		assertThat(found2.size()).isEqualTo(5);
 
 	}
+
+//	@Test
+//	public void canFindBookByNameAndLibrary(){
+//		Library library1 = new Library("John Barnes Library", "Holloway");
+//		Book book1 = new Book("The Lord Of The Rings", "John Tolkien", library1);
+//
+//
+//		List<Book> found3 = bookRepository.findBookByNameAndLibrary("The Lord Of The Rings", library1);
+//		assertThat(found3.size()).isEqualTo(1);
+//
+//	}
 
 }
 
